@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { Container, ButtonWrap } from "../styles/style";
 import Title from "../assets/images/Title.svg";
 import MainImage from "../assets/images/MainImage.svg";
