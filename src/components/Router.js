@@ -1,6 +1,6 @@
 import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import Auth from "routes/Auth";
-import Main from "routes/Main";
+import Home from "routes/Home";
 
 const AppRouter = ({ isLoggedIn, userObj }) => {
   return (
@@ -8,12 +8,12 @@ const AppRouter = ({ isLoggedIn, userObj }) => {
       <Routes>
         {isLoggedIn ? (
           <>
-            <Route path="/" element={<Main userObj={userObj} />} />
+            <Route path="/" element={<Home userObj={userObj} />} />
             <Route path="/login" element={<Auth />} />
           </>
         ) : (
           <>
-            <Route path="/" element={<Main />} />
+            <Route path="/" element={<Home />} />
             <Route path="/login" element={<Auth />} />
           </>
         )}
