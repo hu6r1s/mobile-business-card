@@ -3,6 +3,9 @@ import reset from "styled-reset";
 
 export const GlobalStyles = createGlobalStyle`
   ${reset}
+  body::-webkit-scrollbar {
+    display: none;
+  }
 `
 
 export const FrameDiv = styled.div`

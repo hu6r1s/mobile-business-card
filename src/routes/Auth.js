@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Title from "assets/images/Title.svg";
-import MainImage from "assets/images/MainImage.svg";
 import Google from "assets/images/Google.svg";
 import Facebook from "assets/images/Facebook.svg";
-import Kakao from "assets/images/Kakao.svg";
+import Github from "assets/images/Github.svg";
 import { Container, ButtonWrap } from "styles/style";
 import { firebaseInstance, authService } from "fbase";
+import Header from "../components/Header";
 
 const Auth = () => {
   const navigate = useNavigate();
@@ -19,23 +18,23 @@ const Auth = () => {
       provider = new firebaseInstance.auth.GoogleAuthProvider();
     } else if (name === "facebook") {
       provider = new firebaseInstance.auth.FacebookAuthProvider();
+    } else if (name === "github") {
+      provider = new firebaseInstance.auth.GithubAuthProvider();
     }
     try {
       await authService.signInWithPopup(provider);
-      navigate("/");
+      navigate("/card");
     } catch (error) {
       console.log(error.message);
     }
   };
   return (
     <Container>
-      <img src={Title} alt="메인 타이틀" />
-      <br />
-      <img src={MainImage} alt="메인 로고" />
+      <Header />
       <ButtonWrap>
         <img src={Google} onClick={onSocialClick} name="google" />
-        <img src={Kakao} onClick={onSocialClick} name="kakao" />
         <img src={Facebook} onClick={onSocialClick} name="facebook" />
+        <img src={Github} onClick={onSocialClick} name="github" />
       </ButtonWrap>
     </Container>
   );
